@@ -26,7 +26,7 @@ input,select,textarea{font:inherit;width:100%;border:1px solid var(--b);border-r
 .pr{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pr label{margin:0;font-weight:400;display:flex;gap:6px;align-items:center}.pr input{width:auto;min-height:0}
 #M{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;z-index:20;padding:16px}#M[hidden]{display:none}.mb{background:#fff;border-radius:8px;padding:22px;width:100%;max-width:400px;max-height:90vh;overflow:auto}.mb h3{margin:0 0 14px}
 #T{position:fixed;left:50%;transform:translateX(-50%);bottom:84px;background:var(--k);color:#fff;padding:10px 16px;border-radius:6px;z-index:30;display:none;max-width:90vw}
-#FS{position:fixed;inset:0;z-index:15;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#fff;color:#111;padding:16px}#FS.dk{background:#000;color:#f2f2f2}#FS.dk button{background:#222;color:#eee;border-color:#444}#FS .big{font:800 min(20vw,58vh)/1 Inter,system-ui,-apple-system,'Segoe UI',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.02em}.fst{position:absolute;top:22px;left:0;right:0;display:flex;gap:16px;justify-content:center;align-items:center}.sw{width:30px;height:30px;min-height:0;padding:0;border-radius:50%;border:1px solid #888}.fx{width:44px;height:44px;border-radius:50%;padding:0;background:#50545b;color:#fff;border:0;font-size:18px}.fsl{opacity:.6;font-size:16px}#FS .row button{opacity:.8}
+#FS{position:fixed;inset:0;z-index:15;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#fff;color:#111;padding:16px}#FS.dk{background:#000;color:#f2f2f2}#FS .big{font:700 min(20vw,58vh)/1 'Noto Sans Bengali',system-ui,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
 svg text{font:11px sans-serif;fill:#6b7078}
 @media(max-width:899px){#bot .x{display:none}}@media(min-width:900px){#bot .mo{display:none}body.nb #side{display:none}body.nb #bot{display:flex;padding:4px 24px}body.nb main{margin-left:0;padding:26px 32px 90px}body.nb #bot .nv{font-size:13px}}
 .bk{margin:0 0 10px;padding:4px 12px 4px 8px;color:#40444b;font-weight:500}
@@ -37,3 +37,5 @@ svg text{font:11px sans-serif;fill:#6b7078}
 .study-log th,.study-log td{padding:13px 16px;border-bottom:1px solid var(--b);vertical-align:top}
 .study-log thead th{background:#f7f8fa;font-weight:700;color:#343840}
 .study-log tfoot th{border-bottom:0;border-top:1px solid var(--b);text-align:left}
+.tdig{font-family:'Noto Sans Bengali',system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.ed{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;min-height:0;padding:0;border-radius:50%;margin-left:8px;vertical-align:middle;background:#fff}.ed svg{width:14px;height:14px}
