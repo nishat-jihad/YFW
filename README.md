@@ -13,6 +13,7 @@ Open `index.html`, or serve the folder: `python3 -m http.server`.
 
 ## Structure
 - `src/css/styles.css` styles
+- `src/css/icons.css` navigation icons
 - `src/js/state.js` helpers and data model, `storage.js` IndexedDB
 - `components.js` modal, form, card, chart, `stats.js` calculations
 - `timer.js` timestamp timer and Pomodoro, `pip.js` floating timer
