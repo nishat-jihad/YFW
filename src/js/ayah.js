@@ -1,0 +1,11 @@
+/* Ayah of the day. Only the list of references lives here; the Arabic text (quran-uthmani) and the Bangla meaning (bn.bengali, Muhiuddin Khan) are fetched from api.alquran.cloud and kept on this device for the day. */
+const AYL='94:5 94:6 94:7 94:8 93:3 93:4 93:5 93:11 1:2 1:5 1:6 2:286 2:255 2:152 2:153 2:155 2:156 2:186 2:185 2:216 2:45 2:201 2:269 2:197 2:148 2:250 3:8 3:139 3:159 3:160 3:173 3:190 3:200 3:133 4:28 6:162 7:23 7:199 8:46 9:51 9:105 9:129 10:62 11:88 11:115 12:64 12:86 12:87 12:90 13:11 13:28 14:7 14:40 15:99 16:97 16:127 16:128 17:9 17:19 17:80 17:85 18:10 18:30 18:46 20:25 20:26 20:28 20:46 20:114 20:132 21:83 21:87 23:118 25:58 25:74 26:80 26:83 27:19 28:24 29:6 29:69 30:60 31:12 31:17 33:3 35:28 39:9 39:10 39:36 39:53 40:44 40:55 40:60 41:34 41:35 42:43 49:10 49:13 51:56 53:39 53:40 55:13 58:11 59:18 64:11 64:16 65:2 65:3 65:4 65:7 73:8 87:14 89:27 89:28 91:9 91:10 92:5 92:7 95:4 96:3 96:4 96:5 99:7 99:8 103:2 103:3 112:2'.split(' ');
+const ayRef=()=>{const o=ps(td());return AYL[Math.floor(Date.UTC(o.getFullYear(),o.getMonth(),o.getDate())/864e5)%AYL.length]};
+let AY=null,ayBusy=0,ayT=0;
+const ayGet=()=>{try{return JSON.parse(localStorage.getItem('yf_ayah')||'null')}catch(e){return null}};
+function ayHtml(){const a=AY||ayGet();if(!a)return`<p class=mu>${ayBusy?'Loading the ayah of the day…':'Could not load the ayah. Internet is needed once a day.'}</p>`;
+return`<div class=ay-ar lang=ar dir=rtl>${esc(a.ar)}</div><p class=ay-bn lang=bn>${esc(a.bn)}</p><p class="mu ay-src">${esc(a.sn)} ${a.s}:${a.n}${a.tr?' · অনুবাদ: '+esc(a.tr):''}</p>${a.d!=td()?'<p class="mu ay-src">Showing the last saved ayah. Connect to the internet for a new one.</p>':''}`}
+async function ayLoad(){const k=td(),c=ayGet();if(c&&c.d==k){AY=c;return}if(ayBusy||Date.now()-ayT<6e4)return;ayBusy=1;
+try{const r=await fetch('https://api.alquran.cloud/v1/ayah/'+ayRef()+'/editions/quran-uthmani,bn.bengali'),j=await r.json(),ar=j.data.find(x=>x.edition.identifier=='quran-uthmani'),bn=j.data.find(x=>x.edition.identifier=='bn.bengali');
+if(!ar||!bn||!ar.text||!bn.text)throw 0;AY={d:k,s:ar.surah.number,n:ar.numberInSurah,sn:ar.surah.englishName,ar:ar.text,bn:bn.text,tr:bn.edition.englishName};try{localStorage.setItem('yf_ayah',JSON.stringify(AY))}catch(e){}}catch(e){ayT=Date.now()}
+ayBusy=0;const e=$('#ay');if(e){e.innerHTML=ayHtml();i18n(e)}}
