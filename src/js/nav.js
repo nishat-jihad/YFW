@@ -1,6 +1,6 @@
 /* nav */
 /* views */
-const NAV=[['home','Home','⌂'],['tracker','Daily Tracker','▣'],['timer','Study Timer','◷'],['routine','Weekly Routine','▤'],['stats','Statistics','▥'],['exams','Exams','✎'],['settings','Settings','⚙']],BN={home:'হোম',tracker:'ট্র্যাকার',timer:'টাইমার',routine:'রুটিন',stats:'পরিসংখ্যান',exams:'পরীক্ষা',settings:'সেটিংস'};
+const NAV=[['home','Home','⌂'],['tracker','Daily Tracker','▣'],['timer','Study Timer','◷'],['routine','Weekly Routine','<i class=ric></i>'],['stats','Statistics','▥'],['exams','Exams','✎'],['settings','Settings','⚙']],BN={home:'হোম',tracker:'ট্র্যাকার',timer:'টাইমার',routine:'রুটিন',stats:'পরিসংখ্যান',exams:'পরীক্ষা',settings:'সেটিংস'};
 const nl=(k,e)=>e;
 function build(){$('#nv').innerHTML=NAV.map(n=>`<button class=nv data-r=${n[0]} onclick="A.go('${n[0]}')"><span>${n[2]}</span>${nl(n[0],n[1])}</button>`).join('');const m=['home','tracker','timer','stats'];$('#bot').innerHTML=NAV.map(n=>`<button class="nv${m.includes(n[0])?'':' x'}" data-r=${n[0]} onclick="A.go('${n[0]}')"><span>${n[2]}</span>${nl(n[0],n[1].replace('Daily ','').replace('Study ','').replace('Weekly ',''))}</button>`).join('')+`<button class="nv mo" onclick="more()"><span>☰</span>More</button>`}
 const applyNav=()=>document.body.classList.toggle('nb',S.set.nav=='bottom');
