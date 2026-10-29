@@ -1,7 +1,7 @@
 /* app */
 /* full-screen timer */
 function fsr(){const f=$('#FS'),dk=S.set.theme=='dark';if(f.style.display!='flex')return;f.className=dk?'dk':'';f.innerHTML=`<div class="big tdig">${clk(disp())}</div>`}
-function render(){if(!V[R])R='home';$('#main').innerHTML=(R!='home'?'<button class=bk onclick=A.back()>‹ Back</button>':'')+V[R]();document.querySelectorAll('[data-r]').forEach(b=>b.classList.toggle('on',b.dataset.r==R));const c=$('#jc');if(c)c.oninput=()=>cv=c.value;i18n($('#main'));lgBtn()}
+function render(){if(!V[R])R='home';$('#main').innerHTML=(R!='home'?'<button class=bk onclick=A.back()>‹ Back</button>':'')+V[R]();document.querySelectorAll('[data-r]').forEach(b=>b.classList.toggle('on',b.dataset.r==R));i18n($('#main'));lgBtn();if(R=='home')ayLoad()}
 addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&h!=R&&V[h]){R=h;render()}});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){render();fsr()}});
 function lgBtn(){let b=$('#lg');if(!b){b=document.createElement('button');b.id='lg';b.className='lg';b.onclick=()=>A.lang();document.body.appendChild(b)}b.textContent=S.set.lang=='bn'?'English':'বাংলা'}
