@@ -178,3 +178,20 @@ svg text{font:11px sans-serif;fill:#6b7078}
     width: auto;
   }
 }
+
+/* Auto track */
+.adig {
+  font-family: 'Noto Sans Bengali', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.study-log .ea2 {
+  width: 96px;
+  min-width: 96px;
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.ea2 .ed + .ed {
+  margin-left: 6px;
+}
