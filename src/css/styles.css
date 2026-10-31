@@ -195,3 +195,31 @@ svg text{font:11px sans-serif;fill:#6b7078}
 .ea2 .ed + .ed {
   margin-left: 6px;
 }
+
+/* Notification bell, top left (in the sidebar corner when the sidebar is shown) */
+.ntb {
+  position: fixed;
+  top: 6px;
+  left: 8px;
+  z-index: 8;
+  width: 32px;
+  height: 32px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #6b7078;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ntb.on {
+  color: var(--g);
+  border-color: var(--g);
+}
+@media (min-width: 900px) {
+  body:not(.nb) .ntb {
+    left: 176px;
+    top: 22px;
+  }
+}
