@@ -96,8 +96,7 @@ function ntBell() {
   b.className = 'ntb' + (on ? ' on' : '');
   b.title = on ? ntT('Notifications are on (click to turn off)', 'নোটিফিকেশন চালু (বন্ধ করতে ক্লিক করো)')
                : ntT('Notifications are off (click to turn on)', 'নোটিফিকেশন বন্ধ (চালু করতে ক্লিক করো)');
-  b.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17v-6a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21a2 2 0 0 0 4 0"/>' +
-    (on ? '' : '<path d="M4 4l16 16"/>') + '</svg>';
+  b.innerHTML = '<img src="src/img/bell.png" alt="">';
 }
 
 const NT = {
