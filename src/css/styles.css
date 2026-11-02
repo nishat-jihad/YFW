@@ -729,3 +729,199 @@ svg[aria-label=chart] rect {
 .hm i {
   box-shadow: 0 2px 0 #0002;
 }
+
+
+/* ===== 3D progress bars (home: yellow, tracker: green), badges, soft 3D stat boxes, bell icon ===== */
+
+/* progress bar: outer ring, white gap, glossy pill */
+.pbar {
+  --c1: #4ade80;
+  --c2: #15803d;
+  --ring: #15803d;
+  height: 30px;
+  padding: 4px;
+  margin: 12px 0;
+  border: 3px solid var(--ring);
+  border-radius: 99px;
+  background: #fff;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .12), inset 0 2px 3px rgba(0, 0, 0, .12);
+}
+.pbar.gn {
+  --c1: #4ade80;
+  --c2: #15803d;
+  --ring: #15803d;
+}
+.pbar.yl {
+  --c1: #fde047;
+  --c2: #eab308;
+  --ring: #ca8a04;
+}
+.pbar .pbt {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(#f7f8f7, #e9ecea);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, .2);
+  overflow: hidden;
+}
+.pbar .pbt i {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(var(--c1), var(--c2));
+  box-shadow: inset 0 3px 3px rgba(255, 255, 255, .55), inset 0 -3px 4px rgba(0, 0, 0, .22), 2px 0 4px rgba(0, 0, 0, .25);
+  transition: width .4s;
+}
+.pbar .pbt i::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 3px;
+  height: 32%;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .45);
+}
+
+/* badge beside the progress bar */
+.bdg {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin: 4px 0 14px;
+  padding: 12px 16px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, var(--ba), var(--bb));
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .85), 0 4px 0 var(--be);
+}
+.bdg img {
+  flex: none;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .2));
+}
+.bdg b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 15px;
+  color: #1f2d27;
+}
+.bdg span {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #4a4e55;
+}
+.bdg1 {
+  --ba: #fffbe3;
+  --bb: #e3eefd;
+  --be: #c3d6f2;
+}
+.bdg2 {
+  --ba: #e8f6ee;
+  --bb: #e6e6fa;
+  --be: #c6c6ec;
+}
+.bdg3 {
+  --ba: #fff1e2;
+  --bb: #ffd8c0;
+  --be: #efb48c;
+}
+.bdg4 {
+  --ba: #fff7d1;
+  --bb: #ffe08a;
+  --be: #efc14b;
+}
+.bdg4 img {
+  width: 92px;
+  height: 92px;
+}
+
+/* statistics boxes: soft 3D colours */
+.st {
+  --sa: #eaf7ef;
+  --sb: #cfeedd;
+  --sd: rgba(79, 157, 107, .35);
+  --se: #b5dec6;
+  position: relative;
+  border: 0;
+  border-radius: 20px;
+  padding: 14px 16px;
+  background: linear-gradient(160deg, var(--sa), var(--sb));
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .9), inset 0 -4px 8px rgba(0, 0, 0, .04), 0 8px 14px -6px var(--sd), 0 4px 0 var(--se);
+}
+.st:nth-child(4n+2) {
+  --sa: #eaf2fe;
+  --sb: #d0e2fa;
+  --sd: rgba(59, 130, 246, .3);
+  --se: #b9d2f3;
+}
+.st:nth-child(4n+3) {
+  --sa: #fffae0;
+  --sb: #fdf0a8;
+  --sd: rgba(202, 160, 20, .3);
+  --se: #efdc84;
+}
+.st:nth-child(4n+4) {
+  --sa: #f3edfe;
+  --sb: #e1d6fa;
+  --sd: rgba(139, 92, 246, .28);
+  --se: #cfc2f0;
+}
+.st b {
+  color: #5b6670;
+}
+.st i {
+  color: #1f2d27;
+}
+.st.stk {
+  --sa: #fff2e3;
+  --sb: #ffdcb9;
+  --sd: rgba(255, 122, 26, .32);
+  --se: #f6c394;
+  padding-right: 64px;
+}
+.st .sti {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  margin-top: -23px;
+  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, .18));
+}
+
+/* notification bell: uploaded 3D icon (greyed with a slash when notifications are off) */
+.ntb {
+  width: 38px;
+  height: 38px;
+}
+@media (min-width: 900px) {
+  body:not(.nb) .ntb {
+    left: 174px;
+    top: 20px;
+  }
+}
+.ntb img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.ntb:not(.on) img {
+  filter: grayscale(1);
+  opacity: .55;
+}
+.ntb:not(.on)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30px;
+  height: 2.5px;
+  margin: -1.25px 0 0 -15px;
+  border-radius: 2px;
+  background: #6b7078;
+  transform: rotate(-45deg);
+}
